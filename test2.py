@@ -61,7 +61,9 @@ class Testing(bpy.types.Operator):
                 for next in points:
                     if next in seen:
                         continue
-                    d = current.distance(next)
+
+                    d = math.sqrt((next.x - current.x) ** 2 + (next.y - current.y) ** 2 + (next.z - current.z) ** 2)
+
                     if d < distance:
                         distance = d
                         closest = next
